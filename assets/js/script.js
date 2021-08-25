@@ -3,7 +3,10 @@ import questions from "../data/questions.js" ;
 const spanElementWithCountdownText = document.querySelector("span[data-countdown]");
 const spanElementWithViewHighScoresText = document.querySelector("span#viewHighscores");
 const mainElement = document.querySelector("main");
+const answerOutputSectionElement = document.querySelector("#answerOutputSection");
+const answerOutputElement = answerOutputSectionElement.querySelector("output");
 let countdownIntervalID; // Declaring variable for intervalId in global-ish scope.
+let resetOutputTimeoutID; // Declaring variable for timeoutId in global-ish scope.
 let currentQuestionIndex = 0;
 
 // Set starting countdown value equal to data attribute in HTML
@@ -18,13 +21,17 @@ const handleClick = (event) => {
     } 
     else if (clickedElement.matches("li")) {
         const chosenAnswer = clickedElement.dataset.option;
+        if (resetOutputTimeoutID) clearTimeout(resetOutputTimeoutID);
 
         if (chosenAnswer === questions[currentQuestionIndex].answer) {
+            answerOutputElement.textContent = "CORRECT!";
         }
         else {
+            answerOutputElement.textContent = "WRONG!";
             decrementCountdown(15);
         };
 
+        resetOutputTimeoutID = setTimeout(() => answerOutputElement.textContent = "", 1_200);
         currentQuestionIndex++;
         const nextQuestion = questions[currentQuestionIndex];
 
@@ -36,6 +43,7 @@ const handleClick = (event) => {
 const startQuiz = () => {
     countdownIntervalID = setInterval(() => decrementCountdown(), 1_000);
     const firstQuestion = questions[currentQuestionIndex];
+    answerOutputSectionElement.setAttribute("style", "display: block;");
 
     renderQuestion(firstQuestion);
 };
@@ -55,7 +63,6 @@ const renderQuestion = ({label, options}) => {
 
     const header = document.createElement("h1");
     const ol = document.createElement("ol");
-    const hr = document.createElement("hr");
 
     header.setAttribute("class", "question label");
     header.textContent = label;
@@ -71,7 +78,6 @@ const renderQuestion = ({label, options}) => {
     };
 
     mainElement.appendChild(ol);
-    mainElement.appendChild(hr);
 };
 
 const endQuiz = () => {
@@ -121,6 +127,7 @@ const renderGameOverView = () => {
 
 const renderHighScoresView = () => {
     mainElement.innerHTML = "";
+    answerOutputSectionElement.setAttribute("style", "display: none;");
 
     const highscores = JSON.parse(localStorage.getItem("highscores")).sort((a, b) => b.score - a.score);
     const header = document.createElement("h1");
