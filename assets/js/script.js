@@ -114,7 +114,7 @@ const renderGameOverView = () => {
 
         localStorage.setItem("highscores", JSON.stringify(highscores));
         renderHighScoresView();
-    });
+    }, { once : true });
 
     form.appendChild(label);
     form.appendChild(input);
@@ -137,12 +137,12 @@ const renderHighScoresView = () => {
 
     header.textContent = "Highscores";
     goBackButton.textContent = "Go Back";
-    goBackButton.addEventListener("click", () => location.reload());
+    goBackButton.addEventListener("click", () => location.reload(),  { once : true });
     clearHighScoresButton.textContent = "Clear Highscores";
     clearHighScoresButton.addEventListener("click", () => {
         localStorage.setItem("highscores", JSON.stringify([]));
         renderHighScoresView();
-    });
+    }, { once : true });
 
     for (const record of highscores) {
         const li = document.createElement("li");
