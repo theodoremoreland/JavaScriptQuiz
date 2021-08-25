@@ -3,13 +3,11 @@ import questions from "../data/questions.js" ;
 const spanElementWithCountdownText = document.querySelector("span[data-countdown]");
 const spanElementWithViewHighScoresText = document.querySelector("span#viewHighscores");
 const mainElement = document.querySelector("main");
+let countdownIntervalID; // Declaring variable for intervalId in global-ish scope.
+let currentQuestionIndex = 0;
 
 // Set starting countdown value equal to data attribute in HTML
 spanElementWithCountdownText.textContent = spanElementWithCountdownText.dataset.countdown;
-
-// Declaring variable for intervalId in global-ish scope.
-let countdownIntervalID;
-let currentQuestionIndex = 0;
 
 const handleClick = (event) => {
     event.stopPropagation();
