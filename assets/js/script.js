@@ -22,7 +22,6 @@ const handleClick = (event) => {
         const chosenAnswer = clickedElement.dataset.option;
 
         if (chosenAnswer === questions[currentQuestionIndex].answer) {
-            alert("Correct!");
         }
         else {
             decrementCountdown(15);
@@ -38,7 +37,9 @@ const handleClick = (event) => {
 
 const startQuiz = () => {
     countdownIntervalID = setInterval(() => decrementCountdown(), 1_000);
-    renderQuestion(questions[currentQuestionIndex]);
+    const firstQuestion = questions[currentQuestionIndex];
+
+    renderQuestion(firstQuestion);
 };
 
 const decrementCountdown = (decrementAmount = 1) => {
@@ -99,7 +100,17 @@ const renderGameOverView = () => {
     input.setAttribute("type", "text");
     input.setAttribute("id", "initials");
     input.setAttribute("name", "initials");
+    submitButton.setAttribute("id", "submitHighScoreButton");
     submitButton.textContent = "Submit";
+    submitButton.addEventListener("click", () => {
+        let highscores = JSON.parse(localStorage.getItem("highscores"));
+        const initials = input.value;
+    
+        highscores = [...highscores, {initials, score: finalScore}].sort((a, b) => b.score - a.score);
+
+        localStorage.setItem("highscores", JSON.stringify(highscores));
+        renderHighScoresView();
+    });
 
     form.appendChild(label);
     form.appendChild(input);
@@ -110,4 +121,36 @@ const renderGameOverView = () => {
     mainElement.appendChild(form);
 };
 
+const renderHighScoresView = () => {
+    mainElement.innerHTML = "";
+
+    const highscores = JSON.parse(localStorage.getItem("highscores")).sort((a, b) => b.score - a.score);
+    const header = document.createElement("h1");
+    const ol = document.createElement("ol");
+    const goBackButton = document.createElement("button");
+    const clearHighScoresButton = document.createElement("button");
+
+    header.textContent = "Highscores";
+    goBackButton.textContent = "Go Back";
+    goBackButton.addEventListener("click", () => location.reload());
+    clearHighScoresButton.textContent = "Clear Highscores";
+    clearHighScoresButton.addEventListener("click", () => {
+        localStorage.setItem("highscores", JSON.stringify([]));
+        renderHighScoresView();
+    });
+
+    for (const record of highscores) {
+        const li = document.createElement("li");
+        li.setAttribute("class", "highscore");
+        li.textContent = `${record.initials} - ${record.score}`;
+        ol.appendChild(li);
+    }
+
+    mainElement.appendChild(header);
+    mainElement.appendChild(ol);
+    mainElement.appendChild(goBackButton);
+    mainElement.appendChild(clearHighScoresButton);
+};
+
 mainElement.addEventListener("click", handleClick);
+spanElementWithViewHighScoresText.addEventListener("click", renderHighScoresView);
