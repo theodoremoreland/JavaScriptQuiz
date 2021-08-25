@@ -1,4 +1,4 @@
-[
+export default [
     {
         "label": "Commonly used data types DO NOT include:",
         "type": "multipleChoice",
