@@ -106,7 +106,8 @@ const renderGameOverView = () => {
     input.setAttribute("name", "initials");
     submitButton.setAttribute("id", "submitHighScoreButton");
     submitButton.textContent = "Submit";
-    submitButton.addEventListener("click", () => {
+    submitButton.addEventListener("click", (event) => {
+        event.preventDefault();
         let highscores = JSON.parse(localStorage.getItem("highscores"));
         const initials = input.value;
     
