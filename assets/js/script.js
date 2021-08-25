@@ -25,7 +25,7 @@ const handleClick = (event) => {
             alert("Correct!");
         }
         else {
-            decrementCountdown(10);
+            decrementCountdown(15);
         };
 
         currentQuestionIndex++;
@@ -51,7 +51,7 @@ const decrementCountdown = (decrementAmount = 1) => {
     }
 };
 
-const renderQuestion = ({label, options }) => {
+const renderQuestion = ({label, options}) => {
     mainElement.innerHTML = "";
 
     const header = document.createElement("h1");
@@ -77,7 +77,37 @@ const renderQuestion = ({label, options }) => {
 
 const endQuiz = () => {
     clearInterval(countdownIntervalID);
-    alert("Quiz over!");
+    renderGameOverView();
+};
+
+const renderGameOverView = () => {
+    mainElement.innerHTML = "";
+
+    const finalScore =  spanElementWithCountdownText.dataset.countdown;
+    const header = document.createElement("h1");
+    const p = document.createElement("p");
+    const form = document.createElement("form");
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    const submitButton = document.createElement("button");
+
+    header.setAttribute("class", "question label");
+    header.textContent = "All done!";
+    p.textContent = `Your final score is: ${finalScore}.`;
+    label.setAttribute("for", "initials");
+    label.textContent = "Enter initials:";
+    input.setAttribute("type", "text");
+    input.setAttribute("id", "initials");
+    input.setAttribute("name", "initials");
+    submitButton.textContent = "Submit";
+
+    form.appendChild(label);
+    form.appendChild(input);
+    form.appendChild(submitButton);
+
+    mainElement.appendChild(header);
+    mainElement.appendChild(p);
+    mainElement.appendChild(form);
 };
 
 mainElement.addEventListener("click", handleClick);
