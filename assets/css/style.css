@@ -1,0 +1,16 @@
+/* ___________________ FONTS ____________________________ */
+
+@font-face {
+    font-family: header;
+    src: url('../fonts/MavenPro-Bold.ttf');
+}
+  
+@font-face {
+    font-family: paragraph;
+    src: url('../fonts/MavenPro-Medium.ttf');
+}
+    
+@font-face {
+    font-family: accent;
+    src: url('../fonts/MavenPro-Regular.ttf');
+}
