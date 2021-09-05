@@ -82,7 +82,7 @@ main {
 
 h1 {
     font: var(--header-small);
-    padding: 5px 15px;
+    padding: 5px 10px;
 }
 
 p {
