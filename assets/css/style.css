@@ -132,6 +132,14 @@ hr {
     border-color: var(--accent-color);
 }
 
+/* ------------------- VIEW HIGH SCORES ------------------- */
+
+#viewHighscores:hover {
+    text-decoration: underline;
+    filter: brightness(1.5);
+    font-weight: bolder;
+}
+
 /* ------------------- ANSWER OUTPUT SECTION ------------------- */
 
 #answerOutputSection {
