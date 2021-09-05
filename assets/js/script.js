@@ -5,6 +5,7 @@ const spanElementWithViewHighScoresText = document.querySelector("span#viewHighs
 const mainElement = document.querySelector("main");
 const answerOutputSectionElement = document.querySelector("#answerOutputSection");
 const answerOutputElement = answerOutputSectionElement.querySelector("output");
+const audioElement = document.querySelector("audio");
 let countdownIntervalID; // Declaring variable for intervalId in global-ish scope.
 let resetOutputTimeoutID; // Declaring variable for timeoutId in global-ish scope.
 let currentQuestionIndex = 0;
@@ -24,9 +25,13 @@ const handleClick = (event) => {
         if (resetOutputTimeoutID) clearTimeout(resetOutputTimeoutID);
 
         if (chosenAnswer === questions[currentQuestionIndex].answer) {
+            audioElement.src = "/assets/sounds/correct.wav";
+            audioElement.play();
             answerOutputElement.textContent = "CORRECT!";
         }
         else {
+            audioElement.src = "/assets/sounds/wrong.mp3";
+            audioElement.play();
             answerOutputElement.textContent = "WRONG!";
             decrementCountdown(15);
         };
@@ -52,6 +57,8 @@ const decrementCountdown = (decrementAmount = 1) => {
     const currentCountdownValue = spanElementWithCountdownText.dataset.countdown;
     
     if (currentCountdownValue <= 0) {
+        audioElement.src = "/assets/sounds/game-over.wav";
+        audioElement.play();
         endQuiz();
     } else {
         spanElementWithCountdownText.textContent = spanElementWithCountdownText.dataset.countdown -= decrementAmount;
