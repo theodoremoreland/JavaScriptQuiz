@@ -49,3 +49,63 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+header {
+    height: 5vh;
+    width: 100vw;
+}
+
+header > nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    font: var(--accent-medium);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font: var(--header-small);
+    padding: 5px;
+}
+
+p {
+    font: var(--body-small);
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    background-color: var(--tertiary-color);
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    font: var(--body-medium);
+    color: var(--accent-color);
+}
+
+li {
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 1px;
+    margin: 5px 0px;
+    padding: 5px;
+    font: var(--body-medium);
+    color: var(--tertiary-color);
+}
