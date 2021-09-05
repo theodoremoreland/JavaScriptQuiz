@@ -95,6 +95,8 @@ const renderGameOverView = () => {
     const label = document.createElement("label");
     const input = document.createElement("input");
     const submitButton = document.createElement("button");
+    const goBackButton = document.createElement("button");
+    
 
     header.setAttribute("class", "question label");
     header.textContent = "All done!";
@@ -116,10 +118,13 @@ const renderGameOverView = () => {
         localStorage.setItem("highscores", JSON.stringify(highscores));
         renderHighScoresView();
     }, { once : true });
+    goBackButton.textContent = "Go Back";
+    goBackButton.addEventListener("click", () => location.reload(),  { once : true });
 
     form.appendChild(label);
     form.appendChild(input);
     form.appendChild(submitButton);
+    form.appendChild(goBackButton);
 
     mainElement.appendChild(header);
     mainElement.appendChild(p);
