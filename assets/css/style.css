@@ -91,11 +91,17 @@ p {
     text-align: center;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 button {
     background-color: var(--tertiary-color);
     border: none;
     border-radius: 20px;
     padding: 10px;
+    margin: 10px 0px;
     font: var(--body-medium);
     color: var(--accent-color);
 }
