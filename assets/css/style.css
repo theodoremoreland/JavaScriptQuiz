@@ -82,7 +82,7 @@ main {
 
 h1 {
     font: var(--header-small);
-    padding: 5px;
+    padding: 5px 15px;
 }
 
 p {
@@ -104,8 +104,21 @@ li {
     background-color: var(--secondary-color);
     border: none;
     border-radius: 1px;
-    margin: 5px 0px;
+    margin: 15px 0px;
     padding: 5px;
     font: var(--body-medium);
     color: var(--tertiary-color);
+}
+
+hr {
+    border-color: var(--accent-color);
+}
+
+/* ------------------- ANSWER OUTPUT SECTION ------------------- */
+
+#answerOutputSection {
+    display: none;
+    text-align: center;
+    height: 10vh;
+    width: 100vw;
 }
