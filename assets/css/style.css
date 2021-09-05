@@ -108,6 +108,16 @@ li {
     padding: 5px;
     font: var(--body-medium);
     color: var(--tertiary-color);
+    transition: transform;
+}
+
+li:hover {
+    filter: brightness(1.5);
+    transform: translateY(-5%);
+}
+
+li:active {
+    filter: brightness(1.8);
 }
 
 hr {
