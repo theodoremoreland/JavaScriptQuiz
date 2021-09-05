@@ -108,7 +108,7 @@ const renderGameOverView = () => {
     submitButton.textContent = "Submit";
     submitButton.addEventListener("click", (event) => {
         event.preventDefault();
-        let highscores = JSON.parse(localStorage.getItem("highscores"));
+        let highscores = JSON.parse(localStorage.getItem("highscores") || "[]");
         const initials = input.value;
     
         highscores = [...highscores, {initials, score: finalScore}].sort((a, b) => b.score - a.score);
@@ -130,7 +130,7 @@ const renderHighScoresView = () => {
     mainElement.innerHTML = "";
     answerOutputSectionElement.setAttribute("style", "display: none;");
 
-    const highscores = JSON.parse(localStorage.getItem("highscores")).sort((a, b) => b.score - a.score);
+    const highscores = JSON.parse(localStorage.getItem("highscores") || "[]").sort((a, b) => b.score - a.score);
     const header = document.createElement("h1");
     const ol = document.createElement("ol");
     const goBackButton = document.createElement("button");
