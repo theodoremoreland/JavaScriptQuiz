@@ -39,3 +39,13 @@
     --tertiary-color: #EDF5E1;
     --accent-color: #379683;
 }
+
+
+/* ------------------- GLOBAL ------------------- */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
