@@ -11,7 +11,7 @@ export const renderQuestion = (elementWithQuestion, {label, options}) => {
 
     for (const option of options) {
         const li = document.createElement("li");
-        li.setAttribute("class", "question option");
+        li.setAttribute("class", "answer option");
         li.dataset.option = option;
         li.textContent = option;
         ol.appendChild(li);

@@ -17,6 +17,23 @@ let currentQuestionIndex = 0;
 // Set starting countdown value equal to data attribute in HTML
 spanElementWithCountdownText.textContent = spanElementWithCountdownText.dataset.countdown;
 
+const startQuiz = () => {
+    const firstQuestion = questions[currentQuestionIndex];
+    countdownIntervalID = setInterval(() => decrementCountdown(spanElementWithCountdownText, endQuiz), 1_000);
+    
+    answerOutputSectionElement.setAttribute("style", "display: block;");
+    renderQuestion(mainElement, firstQuestion);
+};
+
+const endQuiz = () => {
+    const finalScore =  spanElementWithCountdownText.dataset.countdown;
+
+    clearInterval(countdownIntervalID);
+    audioElement.src = "/assets/sounds/game-over.wav";
+    audioElement.play();
+    renderGameOverView(mainElement, finalScore);
+};
+
 const handleClick = (event) => {
     event.stopPropagation();
     const clickedElement = event.target;
@@ -24,11 +41,11 @@ const handleClick = (event) => {
     if (clickedElement.matches("#startQuizButton")) {
         startQuiz();
     } 
-    else if (clickedElement.matches(".question.option")) {
+    else if (clickedElement.matches(".answer.option")) {
         const chosenAnswer = clickedElement.dataset.option;
         if (resetOutputTimeoutID) clearTimeout(resetOutputTimeoutID);
 
-        if (chosenAnswer === questions[currentQuestionIndex].answer) {
+        if (chosenAnswer === questions[currentQuestionIndex].correctAnswer) {
             audioElement.src = "/assets/sounds/correct.wav";
             audioElement
                 .play()
@@ -59,24 +76,6 @@ const handleClick = (event) => {
         if (nextQuestion) renderQuestion(mainElement, nextQuestion);
         else endQuiz();
     }
-};
-
-const startQuiz = () => {
-    const firstQuestion = questions[currentQuestionIndex];
-    countdownIntervalID = setInterval(() => decrementCountdown(spanElementWithCountdownText, endQuiz), 1_000);
-    
-    answerOutputSectionElement.setAttribute("style", "display: block;");
-
-    renderQuestion(mainElement, firstQuestion);
-};
-
-const endQuiz = () => {
-    const finalScore =  spanElementWithCountdownText.dataset.countdown;
-
-    clearInterval(countdownIntervalID);
-    audioElement.src = "/assets/sounds/game-over.wav";
-    audioElement.play();
-    renderGameOverView(mainElement, finalScore);
 };
 
 mainElement.addEventListener("click", handleClick);
