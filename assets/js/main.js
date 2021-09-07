@@ -30,12 +30,24 @@ const handleClick = (event) => {
 
         if (chosenAnswer === questions[currentQuestionIndex].answer) {
             audioElement.src = "/assets/sounds/correct.wav";
-            audioElement.play();
+            audioElement
+                .play()
+                .catch(e => {
+                    // AbortError occurs when one sound interrupts another via .play() on the same audio element
+                    // This is expected and intentional, so this will suppress the error.
+                    if (e.name !== "AbortError") console.error(e);
+                });
             answerOutputElement.textContent = "CORRECT!";
         }
         else {
             audioElement.src = "/assets/sounds/wrong.mp3";
-            audioElement.play();
+            audioElement
+                .play()
+                .catch(e => {
+                    // AbortError occurs when one sound interrupts another via .play() on the same audio element
+                    // This is expected and intentional, so this will suppress the error.
+                    if (e.name !== "AbortError") console.error(e.name, e.message);
+                });
             answerOutputElement.textContent = "WRONG!";
             decrementCountdown(spanElementWithCountdownText, endQuiz , 15);
         };
