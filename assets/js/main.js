@@ -1,4 +1,6 @@
 import questions from "../data/questions.js" ;
+import { decrementCountdown } from "./scripts/decrementCountdown.js";
+import { renderQuestion } from "./scripts/renderQuestion.js";
 
 const spanElementWithCountdownText = document.querySelector("span[data-countdown]");
 const spanElementWithViewHighScoresText = document.querySelector("span#viewHighscores");
@@ -33,56 +35,24 @@ const handleClick = (event) => {
             audioElement.src = "/assets/sounds/wrong.mp3";
             audioElement.play();
             answerOutputElement.textContent = "WRONG!";
-            decrementCountdown(15);
+            decrementCountdown(spanElementWithCountdownText, endQuiz , 15);
         };
 
         resetOutputTimeoutID = setTimeout(() => answerOutputElement.textContent = "", 1_200);
         currentQuestionIndex++;
         const nextQuestion = questions[currentQuestionIndex];
 
-        if (nextQuestion) renderQuestion(nextQuestion);
+        if (nextQuestion) renderQuestion(mainElement, nextQuestion);
         else endQuiz();
     }
 };
 
 const startQuiz = () => {
-    countdownIntervalID = setInterval(() => decrementCountdown(), 1_000);
+    countdownIntervalID = setInterval(() => decrementCountdown(spanElementWithCountdownText, endQuiz), 1_000);
     const firstQuestion = questions[currentQuestionIndex];
     answerOutputSectionElement.setAttribute("style", "display: block;");
 
-    renderQuestion(firstQuestion);
-};
-
-const decrementCountdown = (decrementAmount = 1) => {
-    const currentCountdownValue = spanElementWithCountdownText.dataset.countdown;
-    
-    if (currentCountdownValue <= 0) {
-        endQuiz();
-    } else {
-        spanElementWithCountdownText.textContent = spanElementWithCountdownText.dataset.countdown -= decrementAmount;
-    }
-};
-
-const renderQuestion = ({label, options}) => {
-    mainElement.innerHTML = "";
-
-    const header = document.createElement("h1");
-    const ol = document.createElement("ol");
-
-    header.setAttribute("class", "question label");
-    header.textContent = label;
-
-    mainElement.appendChild(header);
-
-    for (const option of options) {
-        const li = document.createElement("li");
-        li.setAttribute("class", "question option");
-        li.dataset.option = option;
-        li.textContent = option;
-        ol.appendChild(li);
-    };
-
-    mainElement.appendChild(ol);
+    renderQuestion(mainElement, firstQuestion);
 };
 
 const endQuiz = () => {
