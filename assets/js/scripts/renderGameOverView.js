@@ -1,3 +1,5 @@
+import { submitHighScore } from "./submitHighScore.js";
+
 export const renderGameOverView = (renderElement, finalScore) => {
     renderElement.innerHTML = "";
 
@@ -22,13 +24,7 @@ export const renderGameOverView = (renderElement, finalScore) => {
     submitButton.textContent = "Submit";
     submitButton.addEventListener("click", (event) => {
         event.preventDefault();
-        let highscores = JSON.parse(localStorage.getItem("highscores") || "[]");
-        const initials = input.value;
-    
-        highscores = [...highscores, {initials, score: finalScore}].sort((a, b) => b.score - a.score);
-
-        localStorage.setItem("highscores", JSON.stringify(highscores));
-        renderHighScoresView();
+        submitHighScore(renderElement, input, finalScore);
     }, { once : true });
     goBackButton.textContent = "Go Back";
     goBackButton.addEventListener("click", () => location.reload(),  { once : true });
