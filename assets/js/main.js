@@ -24,7 +24,7 @@ const handleClick = (event) => {
     if (clickedElement.matches("#startQuizButton")) {
         startQuiz();
     } 
-    else if (clickedElement.matches("li")) {
+    else if (clickedElement.matches(".question.option")) {
         const chosenAnswer = clickedElement.dataset.option;
         if (resetOutputTimeoutID) clearTimeout(resetOutputTimeoutID);
 
