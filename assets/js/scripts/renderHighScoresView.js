@@ -7,9 +7,14 @@ export const renderHighScoresView = (renderElement) => {
     const goBackButton = document.createElement("button");
     const clearHighScoresButton = document.createElement("button");
 
+    // Manipulate header
     header.textContent = "Highscores";
+
+    // Manipulate go back button
     goBackButton.textContent = "Go Back";
     goBackButton.addEventListener("click", () => location.reload(),  { once : true });
+
+    // Manipulate clear high scores button
     clearHighScoresButton.textContent = "Clear Highscores";
     clearHighScoresButton.addEventListener("click", () => {
         localStorage.setItem("highscores", JSON.stringify([]));
