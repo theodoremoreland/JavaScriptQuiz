@@ -35,4 +35,5 @@ A timed, broswer based coding quiz. Built using vanilla JavaScript. Automated te
 <img src="presentation/6.PNG" width="250">
 
 ## High scores screen (Galaxy Fold emulation)
+*Screenshots were not taken as a part of the same playthrough, hence scores / times not being reflective of previous screenshots*
 <img src="presentation/7.PNG" width="250">
