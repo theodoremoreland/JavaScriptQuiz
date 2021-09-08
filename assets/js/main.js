@@ -29,7 +29,7 @@ const endQuiz = () => {
     const finalScore =  spanElementWithCountdownText.dataset.countdown;
 
     clearInterval(countdownIntervalID);
-    audioElement.src = "/assets/sounds/game-over.wav";
+    audioElement.src = "assets/sounds/game-over.wav";
     audioElement.play();
     renderGameOverView(mainElement, finalScore);
 };
@@ -46,7 +46,7 @@ const handleClick = (event) => {
         if (resetOutputTimeoutID) clearTimeout(resetOutputTimeoutID);
 
         if (chosenAnswer === questions[currentQuestionIndex].correctAnswer) {
-            audioElement.src = "/assets/sounds/correct.wav";
+            audioElement.src = "assets/sounds/correct.wav";
             audioElement
                 .play()
                 .catch(e => {
@@ -57,7 +57,7 @@ const handleClick = (event) => {
             answerOutputElement.textContent = "CORRECT!";
         }
         else {
-            audioElement.src = "/assets/sounds/wrong.mp3";
+            audioElement.src = "assets/sounds/wrong.mp3";
             audioElement
                 .play()
                 .catch(e => {
