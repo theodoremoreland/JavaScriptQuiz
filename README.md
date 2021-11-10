@@ -1,4 +1,4 @@
-# CodeQuiz
+# JavaScript Quiz
 A timed, browser based coding quiz. Built using vanilla JavaScript. Automated testing with Jest.
 
 ### How to play
