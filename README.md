@@ -39,4 +39,5 @@ Once you press the "Start Quiz" button, the timer will count down by one point p
 
 ## High scores screen (Galaxy Fold emulation)
 *Screenshots were not taken as a part of the same playthrough, hence scores / times not being reflective of previous screenshots*
+
 <img src="presentation/7.PNG" width="250">
