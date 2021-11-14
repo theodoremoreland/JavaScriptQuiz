@@ -18,7 +18,7 @@ Once you press the "Start Quiz" button, the timer will count down by one point p
 
 ### Future improvements
 * Flesh out testing suite(s)
-* Replace questions (make them more obscure and original)
+* Add difficulty tiers to quiz.
 
 # Screenshots
 
