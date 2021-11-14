@@ -31,8 +31,8 @@
     --body-medium: 1rem body;
     --body-small: 0.9rem body;
 
-    --accent-medium: 1rem accent;
-    --accent-small: 0.8rem accent;
+    --accent-large: 1.35rem accent;
+    --accent-medium: 1.1rem accent;
 
     --primary-color: #5CDB95;
     --secondary-color: #05386B;
@@ -88,12 +88,24 @@ h1 {
 p {
     font: var(--body-small);
     padding: 10px;
-    text-align: center;
+    text-align: justify;
+    text-justify: inter-character;
+    width: 90%;
 }
 
 form {
     display: flex;
     flex-direction: column;
+}
+
+input {
+    outline: none;
+    border: none;
+    margin: 10px 0px;
+    padding: 0.5em;
+    font: var(--body-medium);
+    color: var(--secondary-color);
+    background-color: var(--tertiary-color);
 }
 
 button {
@@ -114,15 +126,27 @@ button:active {
     filter: brightness(1.5);
 }
 
-li {
-    background-color: var(--secondary-color);
-    border: none;
-    border-radius: 1px;
-    margin: 15px 0px;
-    padding: 5px;
+.final-score {
+    text-align: center;
     font: var(--body-medium);
+}
+
+.question.label {
+    font: var(--header-xs);
+    text-align: center;
+}
+
+li {
+    border: none;
+    border-radius: 150px;
+    margin: 15px auto;
+    padding: 1em 0.7em;
+    max-width: 85%;
+    font: var(--body-small);
     color: var(--tertiary-color);
+    text-align: center;
     transition: transform;
+    background-color: var(--secondary-color);
 }
 
 li:hover {
@@ -140,7 +164,7 @@ hr {
 
 /* ------------------- VIEW HIGH SCORES ------------------- */
 
-#viewHighscores:hover {
+#viewHighscores:hover, #viewHighscores:active {
     text-decoration: underline;
     filter: brightness(1.5);
     font-weight: bolder;
@@ -154,4 +178,22 @@ hr {
     height: 10vh;
     width: 100vw;
     font: var(--accent-medium);
+}
+
+/* ------------------- MEDIA QUERIES ------------------- */
+
+@media screen and (min-width: 769px) {
+    header > nav {
+        font: var(--accent-large);
+    }
+
+    p {
+        font: var(--body-large);
+        width: 60%;
+    }
+
+    li {
+        padding: 1em;
+        font: var(--body-medium);
+    }
 }
