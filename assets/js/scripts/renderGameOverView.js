@@ -6,7 +6,6 @@ export const renderGameOverView = (renderElement, finalScore) => {
     const header = document.createElement("h1");
     const p = document.createElement("p");
     const form = document.createElement("form");
-    const label = document.createElement("label");
     const input = document.createElement("input");
     const submitButton = document.createElement("button");
     const goBackButton = document.createElement("button");
@@ -16,16 +15,14 @@ export const renderGameOverView = (renderElement, finalScore) => {
     header.textContent = "All done!";
 
     // Manipulate paragraph
+    p.classList.add("final-score");
     p.textContent = `Your final score is: ${finalScore}.`;
-
-    // Manipulate label
-    label.setAttribute("for", "initials");
-    label.textContent = "Enter initials:";
 
     // Manipulate input
     input.setAttribute("type", "text");
     input.setAttribute("id", "initials");
     input.setAttribute("name", "initials");
+    input.setAttribute("placeholder", "Enter your initials");
 
     // Manipulate submit button
     submitButton.setAttribute("id", "submitHighScoreButton");
@@ -39,7 +36,6 @@ export const renderGameOverView = (renderElement, finalScore) => {
     goBackButton.textContent = "Go Back";
     goBackButton.addEventListener("click", () => location.reload(),  { once : true });
 
-    form.appendChild(label);
     form.appendChild(input);
     form.appendChild(submitButton);
     form.appendChild(goBackButton);

@@ -18,7 +18,7 @@ let currentQuestionIndex = 0;
 spanElementWithCountdownText.textContent = spanElementWithCountdownText.dataset.countdown;
 
 const startQuiz = () => {
-    const firstQuestion = questions[currentQuestionIndex];
+    const firstQuestion = questions.medium[currentQuestionIndex];
     countdownIntervalID = setInterval(() => decrementCountdown(spanElementWithCountdownText, endQuiz), 1_000);
     
     answerOutputSectionElement.setAttribute("style", "display: block;");
@@ -45,7 +45,7 @@ const handleClick = (event) => {
         const chosenAnswer = clickedElement.dataset.option;
         if (resetOutputTimeoutID) clearTimeout(resetOutputTimeoutID);
 
-        if (chosenAnswer === questions[currentQuestionIndex].correctAnswer) {
+        if (chosenAnswer === questions.medium[currentQuestionIndex].correctAnswer) {
             audioElement.src = "assets/sounds/correct.wav";
             audioElement
                 .play()
@@ -71,7 +71,7 @@ const handleClick = (event) => {
 
         resetOutputTimeoutID = setTimeout(() => answerOutputElement.textContent = "", 1_200);
         currentQuestionIndex++;
-        const nextQuestion = questions[currentQuestionIndex];
+        const nextQuestion = questions.medium[currentQuestionIndex];
 
         if (nextQuestion) renderQuestion(mainElement, nextQuestion);
         else endQuiz();
