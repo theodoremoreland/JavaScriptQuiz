@@ -1,4 +1,5 @@
 import questions from "../data/questions.js" ;
+import { chooseRandomQuestion } from "./scripts/chooseRandomQuestion.js";
 import { decrementCountdown } from "./scripts/decrementCountdown.js";
 import { renderQuestion } from "./scripts/renderQuestion.js";
 import { renderGameOverView } from "./scripts/renderGameOverView.js";
@@ -10,15 +11,15 @@ const mainElement = document.querySelector("main");
 const answerOutputSectionElement = document.querySelector("#answerOutputSection");
 const answerOutputElement = answerOutputSectionElement.querySelector("output");
 const audioElement = document.querySelector("audio");
+const questionIndexesPreviouslyUsed = []; // Aids in keeping track of what questions were already asked.
 let countdownIntervalID; // Declaring variable for intervalId in global-ish scope.
 let resetOutputTimeoutID; // Declaring variable for timeoutId in global-ish scope.
-let currentQuestionIndex = 0;
 
 // Set starting countdown value equal to data attribute in HTML
 spanElementWithCountdownText.textContent = spanElementWithCountdownText.dataset.countdown;
 
 const startQuiz = () => {
-    const firstQuestion = questions.medium[currentQuestionIndex];
+    const firstQuestion = chooseRandomQuestion(questions.medium, questionIndexesPreviouslyUsed);
     countdownIntervalID = setInterval(() => decrementCountdown(spanElementWithCountdownText, endQuiz), 1_000);
     
     answerOutputSectionElement.setAttribute("style", "display: block;");
@@ -43,9 +44,10 @@ const handleClick = (event) => {
     } 
     else if (clickedElement.matches(".answer.option")) {
         const chosenAnswer = clickedElement.dataset.option;
+        
         if (resetOutputTimeoutID) clearTimeout(resetOutputTimeoutID);
 
-        if (chosenAnswer === questions.medium[currentQuestionIndex].correctAnswer) {
+        if (chosenAnswer === questions.medium[questionIndexesPreviouslyUsed[0]].correctAnswer) {
             audioElement.src = "assets/sounds/correct.wav";
             audioElement
                 .play()
@@ -70,8 +72,7 @@ const handleClick = (event) => {
         };
 
         resetOutputTimeoutID = setTimeout(() => answerOutputElement.textContent = "", 1_200);
-        currentQuestionIndex++;
-        const nextQuestion = questions.medium[currentQuestionIndex];
+        const nextQuestion = chooseRandomQuestion(questions.medium, questionIndexesPreviouslyUsed);
 
         if (nextQuestion) renderQuestion(mainElement, nextQuestion);
         else endQuiz();
