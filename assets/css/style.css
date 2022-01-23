@@ -71,6 +71,11 @@ header > nav {
     font: var(--accent-medium);
 }
 
+header > nav > span {
+    padding: 5px 5px;
+}
+
+
 main {
     display: flex;
     flex-direction: column;
@@ -164,6 +169,10 @@ hr {
 
 /* ------------------- VIEW HIGH SCORES ------------------- */
 
+#viewHighscores {
+    border: 1px dashed #05386B;
+}
+
 #viewHighscores:hover, #viewHighscores:active {
     text-decoration: underline;
     filter: brightness(1.5);
@@ -185,6 +194,10 @@ hr {
 @media screen and (min-width: 769px) {
     header > nav {
         font: var(--accent-large);
+    }
+
+    header > nav > span {
+        padding: 5px 10px;
     }
 
     p {
