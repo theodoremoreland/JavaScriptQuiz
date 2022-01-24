@@ -170,11 +170,10 @@ hr {
 /* ------------------- VIEW HIGH SCORES ------------------- */
 
 #viewHighscores {
-    border: 1px dashed #05386B;
+    border-bottom: 1px dashed #05386B;
 }
 
 #viewHighscores:hover, #viewHighscores:active {
-    text-decoration: underline;
     filter: brightness(1.5);
     font-weight: bolder;
 }
@@ -198,6 +197,7 @@ hr {
 
     header > nav > span {
         padding: 5px 10px;
+        margin: 10px 20px 0px 20px;
     }
 
     p {
