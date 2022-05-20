@@ -26,12 +26,22 @@ const startQuiz = () => {
     renderQuestion(mainElement, firstQuestion);
 };
 
-const endQuiz = () => {
+const endQuiz = (reason) => {
     const finalScore =  spanElementWithCountdownText.dataset.countdown;
 
     clearInterval(countdownIntervalID);
-    audioElement.src = "assets/sounds/game-over.wav";
-    audioElement.play();
+
+    if (reason === "out of time") {
+        audioElement.src = "assets/sounds/game-over.wav";
+        audioElement
+            .play()
+            .catch(e => {
+                // AbortError occurs when one sound interrupts another via .play() on the same audio element
+                // This is expected and intentional, so this will suppress the error.
+                if (e.name !== "AbortError") console.error(e);
+            });
+    }
+
     renderGameOverView(mainElement, finalScore);
 };
 

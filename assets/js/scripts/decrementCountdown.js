@@ -2,7 +2,7 @@ export const decrementCountdown = (elementWithCountdownText, callback, decrement
     const currentCountdownValue = elementWithCountdownText.dataset.countdown;
     
     if (currentCountdownValue <= 0) {
-        callback();
+        callback("out of time");
     } else {
         elementWithCountdownText.textContent = elementWithCountdownText.dataset.countdown -= decrementAmount;
     }
