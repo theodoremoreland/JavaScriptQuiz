@@ -4,7 +4,7 @@
     font-family: header;
     src: url('../fonts/MavenPro-Bold.ttf');
 }
-  
+
 @font-face {
     font-family: body;
     src: url('../fonts/MavenPro-Medium.ttf');
@@ -161,6 +161,19 @@ li:hover {
 
 li:active {
     filter: brightness(1.8);
+}
+
+li.highscore {
+    text-align: left;
+    margin: 0px;
+    padding: 0.8rem;
+    color: var(--secondary-color);
+    background-color: transparent;
+}
+
+li.highscore:hover {
+    filter: initial;
+    transform: initial;
 }
 
 hr {

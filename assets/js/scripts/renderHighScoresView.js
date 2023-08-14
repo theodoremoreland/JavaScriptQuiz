@@ -24,7 +24,7 @@ export const renderHighScoresView = (renderElement) => {
     for (const record of highscores) {
         const li = document.createElement("li");
         li.setAttribute("class", "highscore");
-        li.textContent = `${record.initials} - ${record.score}`;
+        li.textContent = `${record.score} (${record.initials})`;
         ol.appendChild(li);
     }
 
