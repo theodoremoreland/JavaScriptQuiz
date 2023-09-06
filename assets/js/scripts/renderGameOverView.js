@@ -18,22 +18,27 @@ export const renderGameOverView = (renderElement, finalScore) => {
     p.classList.add("final-score");
     p.textContent = `Your final score is: ${finalScore}.`;
 
+    // Manipulate form
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        submitHighScore(renderElement, finalScore);
+    });
+
     // Manipulate input
     input.setAttribute("type", "text");
     input.setAttribute("id", "initials");
     input.setAttribute("name", "initials");
     input.setAttribute("placeholder", "Enter your initials");
+    input.setAttribute("required", true);
 
     // Manipulate submit button
     submitButton.setAttribute("id", "submitHighScoreButton");
+    submitButton.setAttribute("type", "submit");
     submitButton.textContent = "Submit";
-    submitButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        submitHighScore(renderElement, input, finalScore);
-    }, { once : true });
 
     // Manipulate go back button
-    goBackButton.textContent = "Go Back";
+    goBackButton.textContent = "Home";
     goBackButton.addEventListener("click", () => location.reload(),  { once : true });
 
     form.appendChild(input);
