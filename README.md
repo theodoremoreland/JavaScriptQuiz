@@ -1,5 +1,5 @@
 # JavaScript Quiz
-A timed, browser based coding quiz. Built using vanilla JavaScript.
+A timed, browser based JavaScript quiz. Built using vanilla JavaScript.
 
 Vistit here: https://theodoremoreland.github.io/JavaScriptQuiz/
 
@@ -15,4 +15,4 @@ Once you press the "Start Quiz" button, the timer will count down by one point p
 * HTML5
 * CSS3
 * JavaScript (ES6)
-* GitHub Page
+* GitHub Pages
