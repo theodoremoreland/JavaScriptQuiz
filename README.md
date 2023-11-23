@@ -27,42 +27,42 @@ Once you press the "Start Quiz" button, the timer will count down by one point p
 
 ### Home screen
 
-<img src="presentation/6.PNG" width="100">
+<img src="presentation/6.PNG" width="300">
 
 ### Question
 
-<img src="presentation/7.PNG" width="100">
+<img src="presentation/7.PNG" width="300">
 
 ### Another question
 
-<img src="presentation/8.PNG" width="100">
+<img src="presentation/8.PNG" width="300">
 
 ### End game screen upon time expiring
 
-<img src="presentation/9.PNG" width="100">
+<img src="presentation/9.PNG" width="300">
 
 ### Highscores list
 
-<img src="presentation/10.PNG" width="100">
+<img src="presentation/10.PNG" width="300">
 
 ## Screenshots (Desktop)
 
 ### Home screen
 
-<img src="presentation/1.PNG" width="300">
+<img src="presentation/1.PNG" width="600">
 
 ### Question after correctly answering previous question
 
-<img src="presentation/2.PNG" width="300">
+<img src="presentation/2.PNG" width="600">
 
 ### Question after incorrectly answering previous question
 
-<img src="presentation/3.PNG" width="300">
+<img src="presentation/3.PNG" width="600">
 
 ### End game screen with a score of 60
 
-<img src="presentation/4.PNG" width="300">
+<img src="presentation/4.PNG" width="600">
 
 ### Highscores list
 
-<img src="presentation/5.PNG" width="300">
+<img src="presentation/5.PNG" width="600">
