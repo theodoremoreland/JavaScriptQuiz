@@ -2,7 +2,7 @@
 
 A timed, browser based JavaScript quiz. Built using vanilla JavaScript.
 
-<img src="presentation/thumbnail.png" width="300">
+<img src="presentation/thumbnail.png" width="650">
 
 Visit here: https://theodoremoreland.github.io/JavaScriptQuiz/
 
