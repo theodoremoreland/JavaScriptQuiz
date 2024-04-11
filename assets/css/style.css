@@ -1,221 +1,222 @@
 /* ___________________ FONTS ____________________________ */
 
 @font-face {
-    font-family: header;
-    src: url('../fonts/MavenPro-Bold.ttf');
+  font-family: header;
+  src: url("../fonts/MavenPro-Bold.ttf");
 }
 
 @font-face {
-    font-family: body;
-    src: url('../fonts/MavenPro-Medium.ttf');
+  font-family: body;
+  src: url("../fonts/MavenPro-Medium.ttf");
 }
-    
+
 @font-face {
-    font-family: accent;
-    src: url('../fonts/MavenPro-Regular.ttf');
+  font-family: accent;
+  src: url("../fonts/MavenPro-Regular.ttf");
 }
 
 /* ------------------- VARIABLES ------------------- */
 
 :root {
-    --header-xxl: 4rem header;
-    --header-xl: 2.8rem header;
-    --header-large: 2.25rem header;
-    --header-medium: 1.85rem header;
-    --header-small: 1.5rem header;
-    --header-xs: 1.2rem header;
+  --header-xxl: 4rem header;
+  --header-xl: 2.8rem header;
+  --header-large: 2.25rem header;
+  --header-medium: 1.85rem header;
+  --header-small: 1.5rem header;
+  --header-xs: 1.2rem header;
 
-    --body-xxl: 1.8rem body;
-    --body-xl: 1.5rem body;
-    --body-large: 1.23rem body;
-    --body-medium: 1rem body;
-    --body-small: 0.9rem body;
+  --body-xxl: 1.8rem body;
+  --body-xl: 1.5rem body;
+  --body-large: 1.23rem body;
+  --body-medium: 1rem body;
+  --body-small: 0.9rem body;
 
-    --accent-large: 1.35rem accent;
-    --accent-medium: 1.1rem accent;
+  --accent-large: 1.35rem accent;
+  --accent-medium: 1.1rem accent;
 
-    --primary-color: #5CDB95;
-    --secondary-color: #05386B;
-    --tertiary-color: #EDF5E1;
-    --accent-color: #379683;
+  --primary-color: #5cdb95;
+  --secondary-color: #05386b;
+  --tertiary-color: #edf5e1;
+  --accent-color: #379683;
 }
-
 
 /* ------------------- GLOBAL ------------------- */
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 header {
-    height: 5vh;
-    width: 100vw;
+  height: 5vh;
+  width: 100vw;
 }
 
 header > nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px;
-    font: var(--accent-medium);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+  font: var(--accent-medium);
 }
 
 header > nav > span {
-    padding: 5px 5px;
+  padding: 5px 5px;
 }
 
-
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 h1 {
-    font: var(--header-small);
-    padding: 5px 10px;
+  font: var(--header-small);
+  padding: 5px 10px;
 }
 
 p {
-    font: var(--body-small);
-    padding: 10px;
-    text-align: justify;
-    text-justify: inter-character;
-    width: 90%;
+  font: var(--body-small);
+  padding: 10px;
+  text-align: justify;
+  text-justify: inter-character;
+  width: 90%;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 input {
-    outline: none;
-    border: none;
-    margin: 10px 0px;
-    padding: 0.5em;
-    font: var(--body-medium);
-    color: var(--secondary-color);
-    background-color: var(--tertiary-color);
+  outline: none;
+  border: none;
+  margin: 10px 0px;
+  padding: 0.5em;
+  font: var(--body-medium);
+  color: var(--secondary-color);
+  background-color: var(--tertiary-color);
 }
 
 button {
-    background-color: var(--tertiary-color);
-    border: none;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 10px 0px;
-    font: var(--body-medium);
-    color: var(--accent-color);
+  background-color: var(--tertiary-color);
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0px;
+  font: var(--body-medium);
+  color: var(--accent-color);
 }
 
 button:hover {
-    filter: brightness(1.2);
+  filter: brightness(1.2);
 }
 
 button:active {
-    filter: brightness(1.5);
+  filter: brightness(1.5);
 }
 
 .final-score {
-    text-align: center;
-    font: var(--body-medium);
+  text-align: center;
+  font: var(--body-medium);
 }
 
 .question.label {
-    font: var(--header-xs);
-    text-align: center;
+  font: var(--header-xs);
+  text-align: center;
 }
 
 li {
-    border: none;
-    border-radius: 150px;
-    margin: 15px auto;
-    padding: 1em 0.7em;
-    max-width: 85%;
-    font: var(--body-small);
-    color: var(--tertiary-color);
-    text-align: center;
-    transition: transform;
-    background-color: var(--secondary-color);
+  border: none;
+  border-radius: 150px;
+  margin: 15px auto;
+  padding: 1em 0.7em;
+  max-width: 85%;
+  font: var(--body-small);
+  color: var(--tertiary-color);
+  text-align: center;
+  transition: transform;
+  background-color: var(--secondary-color);
 }
 
 li:hover {
-    filter: brightness(1.5);
-    transform: translateY(-5%);
+  cursor: pointer;
+  filter: brightness(1.5);
+  transform: translateY(-5%);
 }
 
 li:active {
-    filter: brightness(1.8);
+  filter: brightness(1.8);
 }
 
 li.highscore {
-    text-align: left;
-    margin: 0px;
-    padding: 0.8rem;
-    color: var(--secondary-color);
-    background-color: transparent;
+  text-align: left;
+  margin: 0px;
+  padding: 0.8rem;
+  color: var(--secondary-color);
+  background-color: transparent;
 }
 
 li.highscore:hover {
-    filter: initial;
-    transform: initial;
+  filter: initial;
+  transform: initial;
 }
 
 hr {
-    border-color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 /* ------------------- VIEW HIGH SCORES ------------------- */
 
-#viewHighscores:hover, #viewHighscores:active {
-    filter: brightness(1.5);
-    font-weight: bolder;
+#viewHighscores:hover,
+#viewHighscores:active {
+  filter: brightness(1.5);
+  font-weight: bolder;
 }
 
 /* ------------------- ANSWER OUTPUT SECTION ------------------- */
 
 #answerOutputSection {
-    display: none;
-    text-align: center;
-    height: 10vh;
-    width: 100vw;
-    font: var(--accent-medium);
+  display: none;
+  text-align: center;
+  height: 10vh;
+  width: 100vw;
+  font: var(--accent-medium);
 }
 
 /* ------------------- MEDIA QUERIES ------------------- */
 
 @media screen and (min-width: 769px) {
-    header > nav {
-        font: var(--accent-large);
-    }
+  header > nav {
+    font: var(--accent-large);
+  }
 
-    header > nav > span {
-        padding: 5px 10px;
-        margin: 10px 20px 0px 20px;
-    }
+  header > nav > span {
+    padding: 5px 10px;
+    margin: 10px 20px 0px 20px;
+  }
 
-    p {
-        font: var(--body-large);
-        width: 60%;
-    }
+  p {
+    font: var(--body-large);
+    width: 60%;
+  }
 
-    li {
-        padding: 1em;
-        font: var(--body-medium);
-    }
+  li {
+    padding: 1em;
+    font: var(--body-medium);
+  }
 }
