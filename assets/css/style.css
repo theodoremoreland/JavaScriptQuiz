@@ -123,6 +123,7 @@ button {
 }
 
 button:hover {
+  cursor: pointer;
   filter: brightness(1.2);
 }
 
@@ -184,6 +185,7 @@ hr {
 
 #viewHighscores:hover,
 #viewHighscores:active {
+  cursor: pointer;
   filter: brightness(1.5);
   font-weight: bolder;
 }
