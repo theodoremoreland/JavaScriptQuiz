@@ -24,6 +24,8 @@ Once you press the "Start Quiz" button, the timer will count down by one point p
 - JavaScript (ES6)
 - GitHub Pages
 
+# Screenshots
+
 ## Desktop
 
 ### Home screen
