@@ -95,6 +95,7 @@ p {
   text-align: justify;
   text-justify: inter-character;
   width: 90%;
+  max-width: 65ch;
 }
 
 form {
